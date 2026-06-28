@@ -2,6 +2,6 @@
     "name": "kingsbridge-v2",
     "version": "1.0.0",
     "dependencies": {
-      "resend": "^6.14.0"
+        "resend": "^6.16.0"
     }
-  }
+}

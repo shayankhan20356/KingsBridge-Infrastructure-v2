@@ -9,8 +9,11 @@ const siteData = {
         { title: "Full-Stack", desc: "Building scalable, high-performance web infrastructures using modern Node.js ecosystems and robust database architectures." }
     ],
     projects: [
-        { title: "Aegis-Vision", desc: "High-scale real-time weapon detection utilizing YOLOv8 computer vision and PostgreSQL." },
-        { title: "Matrix Replay", desc: "Advanced digital forensics and network auditing tool designed for data siphoning analysis." }
+        { title: "Aegis-Vision", desc: "Real-time weapon detection utilizing YOLOv8 computer vision and PostgreSQL.", status: "LIVE" },
+        { title: "Matrix Replay", desc: "Advanced digital forensics and network auditing tool designed for data siphoning.", status: "RESEARCH" },
+        { title: "NovaChat", desc: "Real-time messaging application using Flutter and Node.js with MongoDB authentication.", status: "LIVE" },
+        { title: "JarvisAI", desc: "Python-based voice assistant with WhatsApp automation and ambient noise calibration.", status: "LIVE" },
+        { title: "Kings Bridge Portal", desc: "Full-stack web infrastructure and consultancy portal deployed on Render.", status: "LIVE" }
     ],
     techStack: ["Kali Linux", "Node.js", "Flutter", "YOLOv8", "PostgreSQL", "MongoDB"]
 };
@@ -38,18 +41,23 @@ const render = () => {
 
     // 3. Projects
     document.getElementById('projects-module').innerHTML = `
-        <section id="projects" class="py-24 bg-gray-900/10">
-            <div class="max-w-4xl mx-auto px-6">
-                <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Infrastructure Deployments</h2>
-                <div class="space-y-6">
-                    ${siteData.projects.map(p => `
-                        <div class="p-6 border border-gray-800 rounded hover:border-blue-500 transition group">
-                            <h3 class="text-xl font-bold mb-2 group-hover:text-blue-500">${p.title}</h3>
-                            <p class="text-gray-400 text-sm">${p.desc}</p>
-                        </div>`).join('')}
-                </div>
+    <section id="projects" class="py-24 bg-gray-900/10">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Infrastructure Deployments</h2>
+            <div class="space-y-4">
+                ${siteData.projects.map(p => `
+                    <div class="p-6 border border-gray-800 rounded flex justify-between items-center hover:border-blue-500 transition group">
+                        <div>
+                            <h3 class="text-lg font-bold group-hover:text-blue-500">${p.title}</h3>
+                            <p class="text-gray-400 text-sm mt-1">${p.desc}</p>
+                        </div>
+                        <span class="text-[10px] font-bold ${p.status === 'LIVE' ? 'text-emerald-500' : 'text-amber-500'} ml-4">
+                            ● ${p.status}
+                        </span>
+                    </div>`).join('')}
             </div>
-        </section>`;
+        </div>
+    </section>`;
 
     // 4. Tech Stack
     document.getElementById('tech-module').innerHTML = `
