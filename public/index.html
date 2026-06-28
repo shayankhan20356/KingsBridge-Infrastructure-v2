@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><script src="https://cdn.tailwindcss.com"></script></head>
-<body class="bg-black text-white p-10">
-    <form id="contactForm" class="space-y-4 max-w-lg mx-auto">
-        <input name="name" placeholder="Name" class="w-full p-2 bg-gray-900 border border-gray-700" required>
-        <input name="email" type="email" placeholder="Email" class="w-full p-2 bg-gray-900 border border-gray-700" required>
-        <textarea name="message" placeholder="Message" class="w-full p-2 bg-gray-900 border border-gray-700"></textarea>
-        <button type="submit" class="bg-blue-600 p-2 w-full font-bold">Transmit</button>
-    </form>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>KING'S BRIDGE | Consultancy</title>
+</head>
+<body class="bg-black text-white">
+    <nav class="p-6 flex justify-between items-center border-b border-gray-800">
+        <h1 class="text-xl font-bold">KING'S BRIDGE</h1>
+        <div class="space-x-6 text-sm text-gray-400">
+            <a href="#services">Services</a>
+            <a href="#projects">Infrastructure</a>
+        </div>
+    </nav>
+    
+    <div id="hero-module"></div>
+    <div id="services-module"></div>
+    <div id="projects-module"></div>
+    <div id="contact-module"></div>
+
     <script src="script.js"></script>
 </body>
 </html>

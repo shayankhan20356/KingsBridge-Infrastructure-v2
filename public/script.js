@@ -1,12 +1,46 @@
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'TRANSMITTING...';
-    const data = Object.fromEntries(new FormData(e.target).entries());
-    const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
-    btn.textContent = res.ok ? 'SUCCESS' : 'FAILED';
-});
+// Data Engine
+const siteData = {
+    services: [
+        { title: "Agentic AI", desc: "Autonomous ML systems and computer vision pipelines." },
+        { title: "Cybersecurity", desc: "Penetration testing and forensic data research." },
+        { title: "Full-Stack", desc: "Scalable Node.js architectures and database design." }
+    ],
+    projects: [
+        { title: "Aegis-Vision", desc: "High-scale weapon detection utilizing YOLOv8." },
+        { title: "Matrix Replay Engine", desc: "Advanced network forensics and auditing tool." }
+    ]
+};
+
+// Injection Engine
+const render = () => {
+    document.getElementById('hero-module').innerHTML = `
+        <section class="py-24 text-center border-b border-gray-800">
+            <h2 class="text-5xl font-bold mb-4">Securing the Digital Frontier</h2>
+            <p class="text-gray-400">Next-gen autonomous infrastructure for enterprise.</p>
+        </section>`;
+
+    document.getElementById('services-module').innerHTML = `
+        <section id="services" class="py-20 max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+            ${siteData.services.map(s => `
+                <div class="p-6 border border-gray-800 rounded-xl bg-gray-900/30">
+                    <h3 class="font-bold text-blue-500 mb-2">${s.title}</h3>
+                    <p class="text-sm text-gray-400">${s.desc}</p>
+                </div>`).join('')}
+        </section>`;
+
+    document.getElementById('projects-module').innerHTML = `
+        <section id="projects" class="py-20 bg-gray-900/20">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-10">Deployed Infrastructure</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    ${siteData.projects.map(p => `
+                        <div class="p-6 border border-gray-800 rounded-xl">
+                            <h3 class="font-bold text-xl mb-2">${p.title}</h3>
+                            <p class="text-gray-400 text-sm">${p.desc}</p>
+                        </div>`).join('')}
+                </div>
+            </div>
+        </section>`;
+};
+
+render();
