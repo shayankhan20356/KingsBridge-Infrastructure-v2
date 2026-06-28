@@ -1,0 +1,2 @@
+Contact: mailto:contact.kingsbridge@gmail.com
+Policy: https://kings-bridge-infrastructure-v2.vercel.app/security-policy
