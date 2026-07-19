@@ -76,24 +76,43 @@ const render = () => {
             <a href="#contact" class="inline-block px-8 py-4 bg-white text-black font-bold hover:bg-gray-200 transition">INITIATE PARTNERSHIP</a>
         </section>`;
 
-    // 6. Executive Leadership (CEO Section)
+    // 6. Executive Leadership (Company Roles Grid)
     if (document.getElementById('leadership-module')) {
+        const team = [
+            {
+                name: "Shayan Khan",
+                role: "Chief Executive Officer",
+                bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
+                image: "assets/ceo-avatar.png"
+            },
+            {
+                name: "Allyan Khan", 
+                role: "AI & Machine Learning Lead",
+                bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
+                image: "assets/ai-lead-avatar.png"
+            }
+        ];
+
         document.getElementById('leadership-module').innerHTML = `
-            <section class="py-24 bg-black border-t border-b border-gray-900 text-center">
+            <section class="py-24 bg-black border-t border-b border-gray-900">
                 <div class="max-w-4xl mx-auto px-6">
-                    <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center text-white">Executive Leadership</h2>
+                    <h2 class="text-3xl font-bold mb-16 uppercase tracking-widest text-center text-white">Corporate Structure</h2>
                     
-                    <div class="flex flex-col items-center">
-                        <div class="w-44 h-44 mb-6 rounded-full border-2 border-amber-500 p-1 bg-neutral-900 shadow-xl shadow-amber-500/5 overflow-hidden">
-                            <img src="assets/ceo-avatar.png" alt="Shayan Khan, CEO" class="w-full h-full object-cover rounded-full">
-                        </div>
-                        
-                        <h3 class="text-2xl font-bold tracking-wide text-white mb-1">Shayan Khan</h3>
-                        <p class="text-xs uppercase tracking-[0.2em] text-amber-500 font-semibold mb-6">Chief Executive Officer</p>
-                        
-                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
-                            Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems. Leading KING'S BRIDGE in delivering elite cyber security engineering and scalable full-stack transformations.
-                        </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 text-center">
+                        ${team.map(member => `
+                            <div class="flex flex-col items-center group">
+                                <div class="w-40 h-40 mb-6 rounded-full border-2 border-gray-800 p-1 bg-neutral-900 shadow-xl group-hover:border-amber-500 transition duration-300 overflow-hidden">
+                                    <img src="${member.image}" alt="${member.name}, ${member.role}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+                                </div>
+                                
+                                <h3 class="text-xl font-bold tracking-wide text-white mb-1 group-hover:text-amber-500 transition duration-200">${member.name}</h3>
+                                <p class="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-semibold mb-4">${member.role}</p>
+                                
+                                <p class="text-gray-500 text-sm leading-relaxed max-w-sm">
+                                    ${member.bio}
+                                </p>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             </section>`;
