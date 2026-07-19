@@ -1,12 +1,13 @@
 const siteData = {
     hero: {
         title: "Architecting Resilient Digital Infrastructure",
-        subtitle: "Strategic consultancy in Agentic AI, Penetration Testing, and scalable enterprise full-stack solutions."
+        subtitle: "Strategic consultancy in Agentic AI, Advanced Machine Learning, Business Automation, Penetration Testing, and scalable enterprise full-stack solutions."
     },
     services: [
-        { title: "Agentic AI", desc: "Developing autonomous machine learning systems and computer vision pipelines to automate high-scale enterprise operations." },
-        { title: "Cybersecurity", desc: "Comprehensive penetration testing, vulnerability assessment, and forensic data research to harden your perimeter." },
-        { title: "Full-Stack", desc: "Building scalable, high-performance web infrastructures using modern Node.js ecosystems and robust database architectures." }
+        { title: "Agentic AI & Business Automation", desc: "Developing autonomous machine learning systems, intelligent workflows, and custom automation engines to streamline high-scale enterprise operations." },
+        { title: "Elite Cybersecurity", desc: "Comprehensive penetration testing, vulnerability assessments, and advanced network hardening to secure critical organizational infrastructure." },
+        { title: "Scalable Full-Stack & Machine Learning", desc: "Building resilient, high-performance web applications and backend systems backed by data modeling and robust distributed database architectures." },
+        { title: "Forensic Data Research", desc: "Deep digital forensics, incident response analysis, and technical auditing to detect, mitigate, and reverse sophisticated system threats." }
     ],
     projects: [
         { title: "Aegis-Vision", desc: "Real-time weapon detection utilizing YOLOv8 computer vision and PostgreSQL.", status: "LIVE" },
@@ -22,19 +23,19 @@ const render = () => {
     // 1. Hero
     document.getElementById('hero-module').innerHTML = `
         <section class="py-32 text-center border-b border-gray-800">
-            <h2 class="text-6xl font-bold mb-6 tracking-tight">${siteData.hero.title}</h2>
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto">${siteData.hero.subtitle}</p>
+            <h2 class="text-6xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-gray-200 to-amber-500 bg-clip-text text-transparent">${siteData.hero.title}</h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto px-6">${siteData.hero.subtitle}</p>
         </section>`;
 
     // 2. Services
     document.getElementById('services-module').innerHTML = `
         <section id="services" class="py-24 max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Core Expertise</h2>
-            <div class="space-y-8">
+            <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center text-white">Core Expertise</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 ${siteData.services.map(s => `
-                    <div class="p-8 border-l-4 border-blue-600 bg-gray-900/20 hover:bg-gray-900/50 transition">
-                        <h3 class="text-2xl font-bold mb-3">${s.title}</h3>
-                        <p class="text-gray-400 leading-relaxed">${s.desc}</p>
+                    <div class="p-8 border border-gray-800 bg-gray-900/10 hover:bg-gray-900/30 hover:border-amber-500/50 transition duration-300 rounded">
+                        <h3 class="text-xl font-bold mb-3 text-white">${s.title}</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">${s.desc}</p>
                     </div>`).join('')}
             </div>
         </section>`;
@@ -75,7 +76,30 @@ const render = () => {
             <a href="#contact" class="inline-block px-8 py-4 bg-white text-black font-bold hover:bg-gray-200 transition">INITIATE PARTNERSHIP</a>
         </section>`;
 
-    // 6. Contact Form
+    // 6. Executive Leadership (CEO Section)
+    if (document.getElementById('leadership-module')) {
+        document.getElementById('leadership-module').innerHTML = `
+            <section class="py-24 bg-black border-t border-b border-gray-900 text-center">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center text-white">Executive Leadership</h2>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-44 h-44 mb-6 rounded-full border-2 border-amber-500 p-1 bg-neutral-900 shadow-xl shadow-amber-500/5 overflow-hidden">
+                            <img src="assets/ceo-avatar.png" alt="Shayan Khan, CEO" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold tracking-wide text-white mb-1">Shayan Khan</h3>
+                        <p class="text-xs uppercase tracking-[0.2em] text-amber-500 font-semibold mb-6">Chief Executive Officer</p>
+                        
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+                            Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems. Leading KING'S BRIDGE in delivering elite cyber security engineering and scalable full-stack transformations.
+                        </p>
+                    </div>
+                </div>
+            </section>`;
+    }
+
+    // 7. Contact Form
     document.getElementById('contact-module').innerHTML = `
         <section id="contact" class="py-24 max-w-2xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 uppercase tracking-widest text-center">Initiate Communication</h2>
@@ -87,7 +111,7 @@ const render = () => {
             </form>
         </section>`;
 
-    // 7. Footer
+    // 8. Footer
     document.getElementById('footer-module').innerHTML = `
         <footer class="py-12 border-t border-gray-900 text-center text-gray-600 text-sm">
             <div class="mb-4 space-x-4">
