@@ -158,7 +158,7 @@ const render = () => {
             </div>
         </section>`;
 
-    // 5. Executive Leadership
+    // 5. Corporate Structure (Executive Leadership Grid)
     if (document.getElementById('leadership-module')) {
         const team = [
             {
@@ -166,6 +166,12 @@ const render = () => {
                 role: "Chief Executive Officer",
                 bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
                 image: "assets/ceo-avatar.png"
+            },
+            {
+                name: "Naeem Shah",
+                role: "Lead Web Developer",
+                bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
+                image: "assets/naeem-avatar.png" // Save Naeem's photo in public/assets/ as naeem-avatar.png
             },
             {
                 name: "Allyan Khan",
@@ -176,13 +182,13 @@ const render = () => {
         ];
 
         document.getElementById('leadership-module').innerHTML = `
-            <section id="leadership" class="py-32 max-w-5xl mx-auto px-6 bg-black">
+            <section id="leadership" class="py-32 max-w-6xl mx-auto px-6 bg-black">
                 <div class="text-center mb-20">
-                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance</p>
+                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance & Development</p>
                     <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Executive Leadership</h2>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     ${team.map((member, idx) => `
                         <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all">
                             <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
