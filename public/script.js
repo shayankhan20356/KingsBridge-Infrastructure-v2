@@ -247,7 +247,7 @@ const render = () => {
                 name: "Allyan Khan",
                 role: "AI & Machine Learning Lead",
                 bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
-                image: "assets/allyan-avatar.png"
+                image: "assets/ai-lead-avatar.png"
             },
             {
                 name: "Naeem Shah",
@@ -283,10 +283,10 @@ const render = () => {
     if (document.getElementById('developers-module')) {
         const devTeam = [
             {
-                name: "Sarah Chen",
-                role: "Cybersecurity & Forensic Analyst",
-                stack: "Kali Linux / Wireshark / Python",
-                image: "assets/cyber-avatar.png"
+                name: "Sudais Shah",
+                role: "Web & Mobile App Developer",
+                stack: "HTML + CSS + JavaScript / React / Python / Node.js / Docker / Andriod Studio",
+                image: "assets/sudais-avatar.png"
             },
             {
                 name: "Zaid Tariq",
