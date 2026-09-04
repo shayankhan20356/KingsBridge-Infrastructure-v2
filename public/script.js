@@ -80,12 +80,11 @@ const render = () => {
             </div>
         </section>`;
 
-    // 1.5. Corporate About Section (UET Mardan 2026 Origins & Mission)
+    // 1.5. Corporate About Section
     if (document.getElementById('about-module')) {
         document.getElementById('about-module').innerHTML = `
             <section id="about" class="py-32 max-w-6xl mx-auto px-6 bg-black border-b border-neutral-900">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    
                     <div>
                         <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-sky-500/30 bg-sky-500/10 backdrop-blur-md mb-6">
                             <span class="w-2 h-2 rounded-full bg-sky-400"></span>
@@ -153,7 +152,6 @@ const render = () => {
                             </p>
                         </div>
                     </div>
-
                 </div>
             </section>`;
     }
@@ -236,102 +234,154 @@ const render = () => {
             </div>
         </section>`;
 
-   // 5. Executive Leadership Grid (3 Core Leaders)
-   if (document.getElementById('leadership-module')) {
-    const leadershipTeam = [
-        {
-            name: "Shayan Khan",
-            role: "Chief Executive Officer",
-            bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
-            image: "assets/ceo-avatar.png"
-        },
-        {
-            name: "Allyan Khan",
-            role: "AI & Machine Learning Lead",
-            bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
-            image: "assets/allyan-avatar.png"
-        },
-        {
-            name: "Naeem Shah",
-            role: "Lead Web Developer",
-            bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
-            image: "assets/naeem-avatar.png"
-        }
-    ];
+    // 5. Executive Leadership Grid
+    if (document.getElementById('leadership-module')) {
+        const leadershipTeam = [
+            {
+                name: "Shayan Khan",
+                role: "Chief Executive Officer",
+                bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
+                image: "assets/ceo-avatar.png"
+            },
+            {
+                name: "Allyan Khan",
+                role: "AI & Machine Learning Lead",
+                bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
+                image: "assets/allyan-avatar.png"
+            },
+            {
+                name: "Naeem Shah",
+                role: "Lead Web Developer",
+                bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
+                image: "assets/naeem-avatar.png"
+            }
+        ];
 
-    document.getElementById('leadership-module').innerHTML = `
-        <section id="leadership" class="py-28 max-w-6xl mx-auto px-6 bg-black">
-            <div class="text-center mb-16">
-                <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance</p>
-                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Executive Leadership</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                ${leadershipTeam.map((member, idx) => `
-                    <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all duration-300">
-                        <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
-                            <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+        document.getElementById('leadership-module').innerHTML = `
+            <section id="leadership" class="py-28 max-w-6xl mx-auto px-6 bg-black">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance</p>
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Executive Leadership</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    ${leadershipTeam.map((member, idx) => `
+                        <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all duration-300">
+                            <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
+                                <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-wide">${member.name}</h3>
+                            <p class="text-xs font-mono uppercase tracking-widest ${idx === 0 ? 'text-amber-400' : 'text-sky-400'} font-semibold mb-4">${member.role}</p>
+                            <p class="text-neutral-400 text-sm leading-relaxed font-light max-w-sm">${member.bio}</p>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-1 tracking-wide">${member.name}</h3>
-                        <p class="text-xs font-mono uppercase tracking-widest ${idx === 0 ? 'text-amber-400' : 'text-sky-400'} font-semibold mb-4">${member.role}</p>
-                        <p class="text-neutral-400 text-sm leading-relaxed font-light max-w-sm">${member.bio}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </section>`;
-}
+                    `).join('')}
+                </div>
+            </section>`;
+    }
 
-// 5.5. Engineering & Development Team Grid
-if (document.getElementById('developers-module')) {
-    const devTeam = [
-        {
-            name: "Sarah Chen",
-            role: "Cybersecurity & Forensic Analyst",
-            stack: "Kali Linux / Wireshark / Python",
-            image: "assets/cyber-avatar.png"
-        },
-        {
-            name: "Zaid Tariq",
-            role: "Backend & Systems Engineer",
-            stack: "Node.js / Express / PostgreSQL",
-            image: "assets/dev1-avatar.png"
-        },
-        {
-            name: "Hamza Malik",
-            role: "Computer Vision Engineer",
-            stack: "OpenCV / YOLOv8 / PyTorch",
-            image: "assets/dev2-avatar.png"
-        },
-        {
-            name: "Bilal Ahmad",
-            role: "Full-Stack UI/UX Engineer",
-            stack: "Flutter / Tailwind / MongoDB",
-            image: "assets/dev3-avatar.png"
-        }
-    ];
+    // 5.5. Engineering & Development Team Grid
+    if (document.getElementById('developers-module')) {
+        const devTeam = [
+            {
+                name: "Sarah Chen",
+                role: "Cybersecurity & Forensic Analyst",
+                stack: "Kali Linux / Wireshark / Python",
+                image: "assets/cyber-avatar.png"
+            },
+            {
+                name: "Zaid Tariq",
+                role: "Backend & Systems Engineer",
+                stack: "Node.js / Express / PostgreSQL",
+                image: "assets/dev1-avatar.png"
+            },
+            {
+                name: "Hamza Malik",
+                role: "Computer Vision Engineer",
+                stack: "OpenCV / YOLOv8 / PyTorch",
+                image: "assets/dev2-avatar.png"
+            },
+            {
+                name: "Bilal Ahmad",
+                role: "Full-Stack UI/UX Engineer",
+                stack: "Flutter / Tailwind / MongoDB",
+                image: "assets/dev3-avatar.png"
+            }
+        ];
 
-    document.getElementById('developers-module').innerHTML = `
-        <section id="developers" class="py-24 max-w-7xl mx-auto px-6 bg-black border-t border-neutral-900">
-            <div class="text-center mb-16">
-                <p class="text-xs font-mono uppercase tracking-[0.4em] text-sky-400 mb-3">Core Engineering</p>
-                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider text-white">Development & Research Unit</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                ${devTeam.map(dev => `
-                    <div class="p-6 bg-neutral-950 border border-neutral-900 rounded-xl hover:border-sky-500/50 transition-all duration-300 flex flex-col items-center text-center group">
-                        <div class="w-24 h-24 mb-4 rounded-full border border-neutral-800 p-1 bg-black group-hover:border-sky-400 transition-colors overflow-hidden">
-                            <img src="${dev.image}" alt="${dev.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+        document.getElementById('developers-module').innerHTML = `
+            <section id="developers" class="py-24 max-w-7xl mx-auto px-6 bg-black border-t border-neutral-900">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-sky-400 mb-3">Core Engineering</p>
+                    <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider text-white">Development & Research Unit</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    ${devTeam.map(dev => `
+                        <div class="p-6 bg-neutral-950 border border-neutral-900 rounded-xl hover:border-sky-500/50 transition-all duration-300 flex flex-col items-center text-center group">
+                            <div class="w-24 h-24 mb-4 rounded-full border border-neutral-800 p-1 bg-black group-hover:border-sky-400 transition-colors overflow-hidden">
+                                <img src="${dev.image}" alt="${dev.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-1">${dev.name}</h4>
+                            <p class="text-xs font-mono text-sky-400 mb-3">${dev.role}</p>
+                            <span class="text-[10px] font-mono text-neutral-500 bg-neutral-900 px-2.5 py-1 rounded border border-neutral-800">${dev.stack}</span>
                         </div>
-                        <h4 class="text-lg font-bold text-white mb-1">${dev.name}</h4>
-                        <p class="text-xs font-mono text-sky-400 mb-3">${dev.role}</p>
-                        <span class="text-[10px] font-mono text-neutral-500 bg-neutral-900 px-2.5 py-1 rounded border border-neutral-800">${dev.stack}</span>
+                    `).join('')}
+                </div>
+            </section>`;
+    }
+
+    // 5.6. Join Our Engineering Unit
+    if (document.getElementById('careers-module')) {
+        document.getElementById('careers-module').innerHTML = `
+            <section id="careers" class="py-28 max-w-4xl mx-auto px-6 bg-black border-t border-neutral-900">
+                <div class="text-center mb-16">
+                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Talent Acquisition</p>
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Join the Engineering Unit</h2>
+                    <p class="text-neutral-400 text-sm font-light mt-4 max-w-xl mx-auto">
+                        We are continuously onboarding software engineers, cybersecurity researchers, and machine learning practitioners to build resilient next-generation infrastructure.
+                    </p>
+                </div>
+
+                <form id="joinTeamForm" class="space-y-5 bg-neutral-950 p-8 md:p-10 border border-neutral-900 rounded-2xl contact-card-hover">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Full Legal Name</label>
+                            <input name="applicantName" placeholder="e.g. John Doe" class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded focus:border-amber-400 outline-none transition text-sm text-slate-200 placeholder-neutral-700" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Direct Contact Email</label>
+                            <input name="applicantEmail" type="email" placeholder="e.g. engineer@domain.com" class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded focus:border-amber-400 outline-none transition text-sm text-slate-200 placeholder-neutral-700" required>
+                        </div>
                     </div>
-                `).join('')}
-            </div>
-        </section>`;
-}
-    
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Target Engineering Track</label>
+                            <select name="engineeringTrack" class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded focus:border-amber-400 outline-none transition text-sm text-slate-200" required>
+                                <option value="Cybersecurity & Penetration Testing">Cybersecurity & Penetration Testing</option>
+                                <option value="Full-Stack Web & API Engineering">Full-Stack Web & API Engineering</option>
+                                <option value="Computer Vision & AI Modeling">Computer Vision & AI Modeling</option>
+                                <option value="Cloud Infrastructure & DevOps">Cloud Infrastructure & DevOps</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">GitHub / Portfolio URL</label>
+                            <input name="portfolioUrl" type="url" placeholder="https://github.com/yourhandle" class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded focus:border-amber-400 outline-none transition text-sm text-slate-200 placeholder-neutral-700" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Technical Proficiency & Core Projects</label>
+                        <textarea name="experienceSummary" placeholder="Summarize your tech stack, production repositories, or reverse engineering experience..." class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded h-28 focus:border-amber-400 outline-none transition text-sm text-slate-200 placeholder-neutral-700 resize-none" required></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-300 hover:to-sky-400 text-black font-bold text-xs tracking-[0.2em] uppercase rounded transition-all shadow-[0_0_20px_rgba(56,189,248,0.25)] hover:shadow-[0_0_30px_rgba(56,189,248,0.45)]">
+                        SUBMIT CANDIDACY DOSSIER
+                    </button>
+                </form>
+            </section>`;
+    }
+
     // 6. Call To Action Banner
     document.getElementById('cta-module').innerHTML = `
         <section class="py-24 text-center bg-black border-t border-b border-neutral-900">
@@ -377,7 +427,7 @@ if (document.getElementById('developers-module')) {
 
 render();
 
-// Form Submission Handler
+// Form Submission Handler: Contact Form
 document.addEventListener('submit', async (e) => {
     if (e.target.id === 'contactForm') {
         e.preventDefault();
@@ -400,6 +450,35 @@ document.addEventListener('submit', async (e) => {
         } finally {
             setTimeout(() => {
                 btn.textContent = 'TRANSMIT DATA MATRIX';
+                btn.disabled = false;
+            }, 4000);
+        }
+    }
+});
+
+// Form Submission Handler: Join Team Form
+document.addEventListener('submit', async (e) => {
+    if (e.target.id === 'joinTeamForm') {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        btn.textContent = 'TRANSMITTING DOSSIER...';
+        btn.disabled = true;
+        
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        try {
+            const res = await fetch('/api/join', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            btn.textContent = res.ok ? 'DOSSIER RECEIVED // UNDER REVIEW' : 'TRANSMISSION FAILED';
+            if(res.ok) e.target.reset();
+        } catch {
+            btn.textContent = 'CONNECTION REFUSED';
+        } finally {
+            setTimeout(() => {
+                btn.textContent = 'SUBMIT CANDIDACY DOSSIER';
                 btn.disabled = false;
             }, 4000);
         }
