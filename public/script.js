@@ -80,6 +80,84 @@ const render = () => {
             </div>
         </section>`;
 
+    // 1.5. Corporate About Section (UET Mardan 2026 Origins & Mission)
+    if (document.getElementById('about-module')) {
+        document.getElementById('about-module').innerHTML = `
+            <section id="about" class="py-32 max-w-6xl mx-auto px-6 bg-black border-b border-neutral-900">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div>
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-sky-500/30 bg-sky-500/10 backdrop-blur-md mb-6">
+                            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                            <span class="text-[11px] font-mono tracking-widest text-sky-300 uppercase">Operational Origins & Doctrine</span>
+                        </div>
+                        
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-wide mb-6 leading-tight">
+                            Founded in <span class="text-amber-400">2026</span> at <span class="text-sky-400">UET Mardan</span>, Engineered for the Global Frontier.
+                        </h2>
+                        
+                        <p class="text-neutral-400 text-sm md:text-base leading-relaxed font-light mb-6">
+                            KING'S BRIDGE was established in 2026 within the software engineering corridors of the University of Engineering and Technology (UET) Mardan. Conceived as an advanced technical initiative, the consultancy was forged to bridge the critical divide between theoretical computer science and industrial-scale defense engineering.
+                        </p>
+                        
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light mb-8">
+                            Today, our team architects elite solutions at the intersection of offensive cyber forensics, real-time computer vision pipelines, autonomous agentic intelligence, and high-concurrency cloud backends. We reject off-the-shelf compromises, deploying tailor-built software engines hardened with strict zero-trust standards.
+                        </p>
+                        
+                        <div class="flex items-center space-x-6 border-t border-neutral-900 pt-6 font-mono text-xs text-neutral-400">
+                            <div>
+                                <span class="text-amber-400 font-bold block text-base">UET MARDAN</span>
+                                <span>Academic & R&D Root</span>
+                            </div>
+                            <div class="h-8 w-[1px] bg-neutral-800"></div>
+                            <div>
+                                <span class="text-sky-400 font-bold block text-base">EST. 2026</span>
+                                <span>Autonomous Operations</span>
+                            </div>
+                            <div class="h-8 w-[1px] bg-neutral-800"></div>
+                            <div>
+                                <span class="text-emerald-400 font-bold block text-base">GLOBAL</span>
+                                <span>Zero-Trust Standard</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="p-6 bg-black border border-neutral-900 rounded-xl gold-border-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="text-amber-400 font-mono text-sm">01 //</span>
+                                <h3 class="text-lg font-bold text-white">First-Principles Engineering</h3>
+                            </div>
+                            <p class="text-neutral-400 text-xs leading-relaxed font-light">
+                                Born from rigor and technical discipline. We craft custom microservices, low-latency APIs, and optimized databases designed to withstand immense workload pressures without failure.
+                            </p>
+                        </div>
+
+                        <div class="p-6 bg-black border border-neutral-900 rounded-xl blue-border-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="text-sky-400 font-mono text-sm">02 //</span>
+                                <h3 class="text-lg font-bold text-white">Continuous Zero-Trust Security</h3>
+                            </div>
+                            <p class="text-neutral-400 text-xs leading-relaxed font-light">
+                                Defensive hardening, forensic payload validation, and tactical network auditing. Every communication layer is verified, encrypted, and isolated by default.
+                            </p>
+                        </div>
+
+                        <div class="p-6 bg-black border border-neutral-900 rounded-xl gold-border-glow transition-all duration-300">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <span class="text-amber-400 font-mono text-sm">03 //</span>
+                                <h3 class="text-lg font-bold text-white">Autonomous Machine Intelligence</h3>
+                            </div>
+                            <p class="text-neutral-400 text-xs leading-relaxed font-light">
+                                From real-time object detection models to automated enterprise agent workflows, we build systems that interpret data and execute operations with minimal human friction.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>`;
+    }
+
     // 2. Core Pillars
     document.getElementById('services-module').innerHTML = `
         <section id="services" class="py-32 max-w-6xl mx-auto px-6 bg-black">
@@ -104,7 +182,7 @@ const render = () => {
             </div>
         </section>`;
 
-    // 3. Tech Stack Console
+    // 3. Technical Architecture Console
     document.getElementById('tech-module').innerHTML = `
         <section class="py-24 max-w-4xl mx-auto px-6 bg-black">
             <div class="bg-black border border-neutral-900 rounded-xl shadow-2xl p-8 font-mono blue-glow">
@@ -171,13 +249,13 @@ const render = () => {
                 name: "Naeem Shah",
                 role: "Lead Web Developer",
                 bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
-                image: "assets/naeem-avatar.png" // Save Naeem's photo in public/assets/ as naeem-avatar.png
+                image: "assets/naeem-avatar.png"
             },
             {
                 name: "Allyan Khan",
                 role: "AI & Machine Learning Lead",
                 bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
-                image: "assets/ai-lead-avatar.png"
+                image: "assets/allyan-avatar.png"
             }
         ];
 
@@ -190,11 +268,11 @@ const render = () => {
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     ${team.map((member, idx) => `
-                        <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all">
+                        <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all duration-300">
                             <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
                                 <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
                             </div>
-                            <h3 class="text-2xl font-bold text-white mb-1">${member.name}</h3>
+                            <h3 class="text-2xl font-bold text-white mb-1 tracking-wide">${member.name}</h3>
                             <p class="text-xs font-mono uppercase tracking-widest ${idx === 0 ? 'text-amber-400' : 'text-sky-400'} font-semibold mb-4">${member.role}</p>
                             <p class="text-neutral-400 text-sm leading-relaxed font-light max-w-sm">${member.bio}</p>
                         </div>
