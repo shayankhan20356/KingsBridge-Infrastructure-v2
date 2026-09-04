@@ -236,51 +236,102 @@ const render = () => {
             </div>
         </section>`;
 
-    // 5. Corporate Structure (Executive Leadership Grid)
-    if (document.getElementById('leadership-module')) {
-        const team = [
-            {
-                name: "Shayan Khan",
-                role: "Chief Executive Officer",
-                bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
-                image: "assets/ceo-avatar.png"
-            },
-            {
-                name: "Naeem Shah",
-                role: "Lead Web Developer",
-                bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
-                image: "assets/naeem-avatar.png"
-            },
-            {
-                name: "Allyan Khan",
-                role: "AI & Machine Learning Lead",
-                bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
-                image: "assets/allyan-avatar.png"
-            }
-        ];
+   // 5. Executive Leadership Grid (3 Core Leaders)
+   if (document.getElementById('leadership-module')) {
+    const leadershipTeam = [
+        {
+            name: "Shayan Khan",
+            role: "Chief Executive Officer",
+            bio: "Architecting next-generation digital defense frameworks, custom business automation engines, and robust intelligent infrastructure systems.",
+            image: "assets/ceo-avatar.png"
+        },
+        {
+            name: "Allyan Khan",
+            role: "AI & Machine Learning Lead",
+            bio: "Designing autonomous agentic workflows, complex computer vision pipelines, and scalable predictive data intelligence models.",
+            image: "assets/allyan-avatar.png"
+        },
+        {
+            name: "Naeem Shah",
+            role: "Lead Web Developer",
+            bio: "Engineering high-performance web applications, modern full-stack user interfaces, and resilient client-side architecture.",
+            image: "assets/naeem-avatar.png"
+        }
+    ];
 
-        document.getElementById('leadership-module').innerHTML = `
-            <section id="leadership" class="py-32 max-w-6xl mx-auto px-6 bg-black">
-                <div class="text-center mb-20">
-                    <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance & Development</p>
-                    <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Executive Leadership</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    ${team.map((member, idx) => `
-                        <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all duration-300">
-                            <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
-                                <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
-                            </div>
-                            <h3 class="text-2xl font-bold text-white mb-1 tracking-wide">${member.name}</h3>
-                            <p class="text-xs font-mono uppercase tracking-widest ${idx === 0 ? 'text-amber-400' : 'text-sky-400'} font-semibold mb-4">${member.role}</p>
-                            <p class="text-neutral-400 text-sm leading-relaxed font-light max-w-sm">${member.bio}</p>
+    document.getElementById('leadership-module').innerHTML = `
+        <section id="leadership" class="py-28 max-w-6xl mx-auto px-6 bg-black">
+            <div class="text-center mb-16">
+                <p class="text-xs font-mono uppercase tracking-[0.4em] text-amber-400 mb-3">Governance</p>
+                <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-wider text-white">Executive Leadership</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                ${leadershipTeam.map((member, idx) => `
+                    <div class="p-8 bg-black border border-neutral-900 rounded-xl backdrop-blur-md flex flex-col items-center ${idx === 0 ? 'gold-border-glow' : 'blue-border-glow'} transition-all duration-300">
+                        <div class="w-36 h-36 mb-6 rounded-full border-2 ${idx === 0 ? 'border-amber-500/60' : 'border-sky-500/60'} p-1 bg-black shadow-2xl overflow-hidden">
+                            <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
                         </div>
-                    `).join('')}
-                </div>
-            </section>`;
-    }
+                        <h3 class="text-2xl font-bold text-white mb-1 tracking-wide">${member.name}</h3>
+                        <p class="text-xs font-mono uppercase tracking-widest ${idx === 0 ? 'text-amber-400' : 'text-sky-400'} font-semibold mb-4">${member.role}</p>
+                        <p class="text-neutral-400 text-sm leading-relaxed font-light max-w-sm">${member.bio}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </section>`;
+}
 
+// 5.5. Engineering & Development Team Grid
+if (document.getElementById('developers-module')) {
+    const devTeam = [
+        {
+            name: "Sarah Chen",
+            role: "Cybersecurity & Forensic Analyst",
+            stack: "Kali Linux / Wireshark / Python",
+            image: "assets/cyber-avatar.png"
+        },
+        {
+            name: "Zaid Tariq",
+            role: "Backend & Systems Engineer",
+            stack: "Node.js / Express / PostgreSQL",
+            image: "assets/dev1-avatar.png"
+        },
+        {
+            name: "Hamza Malik",
+            role: "Computer Vision Engineer",
+            stack: "OpenCV / YOLOv8 / PyTorch",
+            image: "assets/dev2-avatar.png"
+        },
+        {
+            name: "Bilal Ahmad",
+            role: "Full-Stack UI/UX Engineer",
+            stack: "Flutter / Tailwind / MongoDB",
+            image: "assets/dev3-avatar.png"
+        }
+    ];
+
+    document.getElementById('developers-module').innerHTML = `
+        <section id="developers" class="py-24 max-w-7xl mx-auto px-6 bg-black border-t border-neutral-900">
+            <div class="text-center mb-16">
+                <p class="text-xs font-mono uppercase tracking-[0.4em] text-sky-400 mb-3">Core Engineering</p>
+                <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-wider text-white">Development & Research Unit</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                ${devTeam.map(dev => `
+                    <div class="p-6 bg-neutral-950 border border-neutral-900 rounded-xl hover:border-sky-500/50 transition-all duration-300 flex flex-col items-center text-center group">
+                        <div class="w-24 h-24 mb-4 rounded-full border border-neutral-800 p-1 bg-black group-hover:border-sky-400 transition-colors overflow-hidden">
+                            <img src="${dev.image}" alt="${dev.name}" class="w-full h-full object-cover rounded-full" onerror="this.src='https://cdn-icons-png.flaticon.com/512/149/149071.png'">
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-1">${dev.name}</h4>
+                        <p class="text-xs font-mono text-sky-400 mb-3">${dev.role}</p>
+                        <span class="text-[10px] font-mono text-neutral-500 bg-neutral-900 px-2.5 py-1 rounded border border-neutral-800">${dev.stack}</span>
+                    </div>
+                `).join('')}
+            </div>
+        </section>`;
+}
+    
     // 6. Call To Action Banner
     document.getElementById('cta-module').innerHTML = `
         <section class="py-24 text-center bg-black border-t border-b border-neutral-900">
