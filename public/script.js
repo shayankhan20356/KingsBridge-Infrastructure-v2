@@ -371,6 +371,11 @@ const render = () => {
                     </div>
 
                     <div>
+                        <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Curriculum Vitae / Résumé (PDF or DOCX, max 4MB)</label>
+                        <input name="resumeFile" id="resumeFileInput" type="file" accept=".pdf,.doc,.docx" class="input-hover w-full p-3 bg-black border border-neutral-800 rounded focus:border-amber-400 outline-none transition text-sm text-neutral-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-mono file:font-semibold file:bg-sky-500/10 file:text-sky-400 hover:file:bg-sky-500/20" required>
+                    </div>
+
+                    <div>
                         <label class="block text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2">Technical Proficiency & Core Projects</label>
                         <textarea name="experienceSummary" placeholder="Summarize your tech stack, production repositories, or reverse engineering experience..." class="input-hover w-full p-3.5 bg-black border border-neutral-800 rounded h-28 focus:border-amber-400 outline-none transition text-sm text-slate-200 placeholder-neutral-700 resize-none" required></textarea>
                     </div>
@@ -427,6 +432,14 @@ const render = () => {
 
 render();
 
+// Helper to convert CV file to Base64
+const fileToBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = (error) => reject(error);
+});
+
 // Form Submission Handler: Contact Form
 document.addEventListener('submit', async (e) => {
     if (e.target.id === 'contactForm') {
@@ -444,7 +457,7 @@ document.addEventListener('submit', async (e) => {
             });
             
             btn.textContent = res.ok ? 'TRANSMISSION SUCCESSFUL' : 'TRANSMISSION ERROR';
-            if(res.ok) e.target.reset();
+            if (res.ok) e.target.reset();
         } catch {
             btn.textContent = 'CONNECTION REFUSED';
         } finally {
@@ -456,24 +469,51 @@ document.addEventListener('submit', async (e) => {
     }
 });
 
-// Form Submission Handler: Join Team Form
+// Form Submission Handler: Join Team Form with CV Attachment
 document.addEventListener('submit', async (e) => {
     if (e.target.id === 'joinTeamForm') {
         e.preventDefault();
         const btn = e.target.querySelector('button');
-        btn.textContent = 'TRANSMITTING DOSSIER...';
+        btn.textContent = 'ATTACHING DOSSIER & TRANSMITTING...';
         btn.disabled = true;
-        
-        const data = Object.fromEntries(new FormData(e.target).entries());
+
         try {
+            const form = e.target;
+            const fileInput = document.getElementById('resumeFileInput');
+            const file = fileInput.files[0];
+
+            if (file && file.size > 4.5 * 1024 * 1024) {
+                alert('File size exceeds the 4MB limit.');
+                btn.textContent = 'SUBMIT CANDIDACY DOSSIER';
+                btn.disabled = false;
+                return;
+            }
+
+            let fileBase64 = null;
+            let fileName = null;
+            if (file) {
+                fileBase64 = await fileToBase64(file);
+                fileName = file.name;
+            }
+
+            const payload = {
+                applicantName: form.applicantName.value,
+                applicantEmail: form.applicantEmail.value,
+                engineeringTrack: form.engineeringTrack.value,
+                portfolioUrl: form.portfolioUrl.value,
+                experienceSummary: form.experienceSummary.value,
+                resumeFileName: fileName,
+                resumeBase64: fileBase64
+            };
+
             const res = await fetch('/api/join', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                body: JSON.stringify(payload)
             });
-            
+
             btn.textContent = res.ok ? 'DOSSIER RECEIVED // UNDER REVIEW' : 'TRANSMISSION FAILED';
-            if(res.ok) e.target.reset();
+            if (res.ok) form.reset();
         } catch {
             btn.textContent = 'CONNECTION REFUSED';
         } finally {
